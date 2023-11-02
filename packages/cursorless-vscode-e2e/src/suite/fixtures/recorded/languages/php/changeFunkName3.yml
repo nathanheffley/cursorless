@@ -1,0 +1,33 @@
+languageId: php
+command:
+  version: 6
+  spokenForm: change funk name
+  action:
+    name: clearAndSetSelection
+    target:
+      type: primitive
+      modifiers:
+        - type: containingScope
+          scopeType: {type: functionName}
+  usePrePhraseSnapshot: true
+initialState:
+  documentContents: |
+    <?php
+
+    $myFunk = function () {
+        echo 'hello world!';
+    }
+  selections:
+    - anchor: {line: 3, character: 8}
+      active: {line: 3, character: 8}
+  marks: {}
+finalState:
+  documentContents: |
+    <?php
+
+     = function () {
+        echo 'hello world!';
+    }
+  selections:
+    - anchor: {line: 2, character: 0}
+      active: {line: 2, character: 0}

@@ -94,6 +94,18 @@
   (method_declaration
     name: (_) @functionName
   )
+  ;;!! $myFunk = function () {
+  ;;!  ^^^^^^^----------------
+  (assignment_expression
+    left: (_) @functionName
+    right: (anonymous_function_creation_expression)
+  )
+  ;;!! $myFunk = fn () => echo 'hello world!';
+  ;;!  ^^^^^^^--------------------------------
+  (assignment_expression
+    left: (_) @functionName
+    right: (arrow_function)
+  )
 ] @functionName.domain
 
 [
