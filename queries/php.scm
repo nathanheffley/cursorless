@@ -109,11 +109,17 @@
 ] @functionName.domain
 
 [
+  ;;!! $test = test();
+  ;;!          ^^^^^^
   (function_call_expression)
+  ;;!! $class = new MyClass();
+  ;;!           ^^^^^^^^^^^^^
   (object_creation_expression)
 ] @functionCall
 
-(function_definition
+;;!! function myFunk($first, $second) {
+;;!  ----------------^^^^^^--^^^^^^^---
+(_
   parameters: (_
     (_)? @_.leading.start.endOf
     .
@@ -124,18 +130,9 @@
   (#insertion-delimiter! @argumentOrParameter ", ")
 )
 
-(method_declaration
-  parameters: (_
-    (_)? @_.leading.start.endOf
-    .
-    (_) @argumentOrParameter @_.leading.end.startOf @_.trailing.start.endOf
-    .
-    (_)? @_.trailing.end.startOf
-  ) @_.iteration
-  (#insertion-delimiter! @argumentOrParameter ", ")
-)
-
-(function_call_expression
+;;!! $result = myFunk($first, $second)
+;;!  -----------------^^^^^^--^^^^^^^-
+(_
   arguments: (_
     (_)? @_.leading.start.endOf
     .
