@@ -4,7 +4,6 @@ import { SimpleScopeTypeType } from "@cursorless/common";
 import { NodeMatcherAlternative, SelectionWithContext } from "../typings/Types";
 import { patternFinder } from "../util/nodeFinders";
 import {
-  argumentMatcher,
   cascadingMatcher,
   createPatternMatchers,
   leadingMatcher,
@@ -86,7 +85,5 @@ const nodeMatchers: Partial<
   ),
 
   collectionKey: trailingMatcher(["array_element_initializer[0]"], ["=>"]),
-
-  argumentOrParameter: argumentMatcher("arguments", "formal_parameters"),
 };
 export default createPatternMatchers(nodeMatchers);

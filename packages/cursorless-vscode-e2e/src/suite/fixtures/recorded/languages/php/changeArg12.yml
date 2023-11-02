@@ -1,0 +1,37 @@
+languageId: php
+command:
+  version: 6
+  spokenForm: change arg
+  action:
+    name: clearAndSetSelection
+    target:
+      type: primitive
+      modifiers:
+        - type: containingScope
+          scopeType: {type: argumentOrParameter}
+  usePrePhraseSnapshot: true
+initialState:
+  documentContents: |-
+    <?php
+
+    class MyClass {
+        public function myFunc($value, public int $num, ...$param) {
+            //
+        }
+    }
+  selections:
+    - anchor: {line: 3, character: 45}
+      active: {line: 3, character: 45}
+  marks: {}
+finalState:
+  documentContents: |-
+    <?php
+
+    class MyClass {
+        public function myFunc($value, , ...$param) {
+            //
+        }
+    }
+  selections:
+    - anchor: {line: 3, character: 35}
+      active: {line: 3, character: 35}

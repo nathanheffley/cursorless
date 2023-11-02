@@ -1,0 +1,37 @@
+languageId: php
+command:
+  version: 6
+  spokenForm: chuck arg
+  action:
+    name: remove
+    target:
+      type: primitive
+      modifiers:
+        - type: containingScope
+          scopeType: {type: argumentOrParameter}
+  usePrePhraseSnapshot: true
+initialState:
+  documentContents: |-
+    <?php
+
+    class MyClass {
+        public function myFunc($value, public int $num, ...$param) {
+            //
+        }
+    }
+  selections:
+    - anchor: {line: 3, character: 30}
+      active: {line: 3, character: 30}
+  marks: {}
+finalState:
+  documentContents: |-
+    <?php
+
+    class MyClass {
+        public function myFunc(public int $num, ...$param) {
+            //
+        }
+    }
+  selections:
+    - anchor: {line: 3, character: 27}
+      active: {line: 3, character: 27}

@@ -84,3 +84,36 @@
   (function_call_expression)
   (object_creation_expression)
 ] @functionCall
+
+(function_definition
+  parameters: (_
+    (_)? @_.leading.start.endOf
+    .
+    (_) @argumentOrParameter @_.leading.end.startOf @_.trailing.start.endOf
+    .
+    (_)? @_.trailing.end.startOf
+  ) @_.iteration
+  (#insertion-delimiter! @argumentOrParameter ", ")
+)
+
+(method_declaration
+  parameters: (_
+    (_)? @_.leading.start.endOf
+    .
+    (_) @argumentOrParameter @_.leading.end.startOf @_.trailing.start.endOf
+    .
+    (_)? @_.trailing.end.startOf
+  ) @_.iteration
+  (#insertion-delimiter! @argumentOrParameter ", ")
+)
+
+(function_call_expression
+  arguments: (_
+    (_)? @_.leading.start.endOf
+    .
+    (_) @argumentOrParameter @_.leading.end.startOf @_.trailing.start.endOf
+    .
+    (_)? @_.trailing.end.startOf
+  ) @_.iteration
+  (#insertion-delimiter! @argumentOrParameter ", ")
+)
