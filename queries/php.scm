@@ -118,7 +118,7 @@
 ] @functionCall
 
 ;;!! function myFunk($first, $second) {
-;;!  ----------------^^^^^^--^^^^^^^---
+;;!                 -^^^^^^--^^^^^^^-
 (_
   parameters: (_
     (_)? @_.leading.start.endOf
@@ -130,8 +130,8 @@
   (#insertion-delimiter! @argumentOrParameter ", ")
 )
 
-;;!! $result = myFunk($first, $second)
-;;!  -----------------^^^^^^--^^^^^^^-
+;;!! $result = myFunk($first, $second);
+;;!                  -^^^^^^--^^^^^^^-
 (_
   arguments: (_
     (_)? @_.leading.start.endOf
