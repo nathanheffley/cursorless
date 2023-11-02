@@ -39,6 +39,21 @@
 
 (comment) @comment @textFragment
 
+[
+  (assignment_expression
+    left: (_) @name
+  )
+  (class_declaration
+    name: (_) @name
+  )
+  (function_definition
+    name: (_) @name
+  )
+  (method_declaration
+    name: (_) @name
+  )
+] @_.domain
+
 ;; Conditionals
 ;;!! if (x < y) {
 ;;!  ----^^^^^---
