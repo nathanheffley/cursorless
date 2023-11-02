@@ -61,6 +61,30 @@
   (array_creation_expression)
 ] @list
 
+[
+  (array_element_initializer
+    (_) @_.leading.start.endOf
+    .
+    "=>"
+    .
+    (_) @value @_.leading.end.startOf
+  )
+  (assignment_expression
+    left: (_) @_.leading.start.endOf
+    right: (_) @value @_.leading.end.startOf
+  )
+  (augmented_assignment_expression
+    left: (_) @_.leading.start.endOf
+    right: (_) @value @_.leading.end.startOf
+  )
+  (return_statement
+    (_) @value
+  )
+  (yield_expression
+    (_) @value
+  )
+] @value.domain
+
 (class_declaration
   name: (_) @className
 ) @class @className.domain
