@@ -50,6 +50,5 @@ const nodeMatchers: Partial<
     trailingMatcher(["~cast_expression[type]"]),
     matcher(patternFinder("cast_expression[type]"), castTypeExtractor),
   ),
-  collectionKey: trailingMatcher(["array_element_initializer[0]"], ["=>"]),
 };
 export default createPatternMatchers(nodeMatchers);

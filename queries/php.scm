@@ -61,6 +61,14 @@
   (array_creation_expression)
 ] @list
 
+(array_element_initializer
+  (_) @collectionKey @_.trailing.end.endOf
+  .
+  "=>"
+  .
+  (_) @_.trailing.end.startOf
+) @_.domain
+
 [
   (array_element_initializer
     (_) @_.leading.start.endOf
