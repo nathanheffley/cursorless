@@ -1,0 +1,41 @@
+languageId: php
+command:
+  version: 6
+  spokenForm: change last branch
+  action:
+    name: clearAndSetSelection
+    target:
+      type: primitive
+      modifiers:
+        - type: ordinalScope
+          scopeType: {type: branch}
+          start: -1
+          length: 1
+  usePrePhraseSnapshot: true
+initialState:
+  documentContents: |-
+    <?php
+
+    if ($one < $two) {
+        echo "hello world";
+    } elseif ($two > $one) {
+        echo "goodbye";
+    } else {
+        echo "something happened";
+    }
+  selections:
+    - anchor: {line: 5, character: 8}
+      active: {line: 5, character: 8}
+  marks: {}
+finalState:
+  documentContents: |-
+    <?php
+
+    if ($one < $two) {
+        echo "hello world";
+    } elseif ($two > $one) {
+        echo "goodbye";
+    } 
+  selections:
+    - anchor: {line: 6, character: 2}
+      active: {line: 6, character: 2}
