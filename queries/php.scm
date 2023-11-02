@@ -39,7 +39,23 @@
 
 (comment) @comment @textFragment
 
-(if_statement) @ifStatement
+;; Conditionals
+;;!! if (x < y) {
+;;!  ----^^^^^---
+(_
+  condition: (_
+    (_) @condition
+  )
+) @_.domain
+
+(if_statement
+  "if" @branch.start
+  body: (_) @branch.end
+) @ifStatement @branch.iteration
+[
+  (else_clause)
+  (else_if_clause)
+] @branch
 
 [
   (array_creation_expression)
